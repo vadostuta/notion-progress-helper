@@ -1,0 +1,12 @@
+.dashboard-item {
+  border: 1px solid #CDC2AE;
+  background-color: #ECE5C7;
+  box-shadow: 0px 0px 15px #cdc2ae;
+  height: 20em;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  .left, .right {
+    flex: 1
+  }
+}

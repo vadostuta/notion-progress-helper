@@ -1,1 +1,3 @@
-<p>dashboard works!</p>
+<div *ngIf="items$ | async as items" class="dashboard">
+  <nph-dashboard-item *ngFor="let item of items" [item]="item" class="dashboard-block"></nph-dashboard-item>
+</div>

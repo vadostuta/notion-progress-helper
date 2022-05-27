@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { Router } from '@angular/router'
+import { AuthService } from 'src/app/shared/services/auth.service'
 
 @Component({
   selector: 'nph-start',
@@ -10,13 +11,12 @@ import { Router } from '@angular/router'
 export class StartComponent implements OnInit {
 
   constructor (
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly authService: AuthService
   ) { }
 
   handleLogin (): void {
-    /**
-     * TODO: login logic
-     */
+    this.authService.setLogState(true)
     this.router.navigate(['dashboard'])
   }
 

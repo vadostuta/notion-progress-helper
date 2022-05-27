@@ -1,0 +1,9 @@
+<header>
+  <div>
+    <button *ngIf="isLogged$ | async" mat-raised-button color="primary" (click)="handleDashboard()">Dashboard</button>
+    <button mat-raised-button color="primary" (click)="handleUpdates()">Updates</button>
+  </div>
+  <div>
+    <button *ngIf="isLogged$ | async" mat-raised-button color="primary" (click)="handleLogout()">Logout</button>
+  </div>
+</header>
