@@ -4,10 +4,10 @@
       {{ item.name }}
     </h1>
     <h3>
-      {{ item.description }}
+      {{ item?.description || '' }}
     </h3>
     <h3>
-      {{ item.date }}
+      {{ item.url }}
     </h3>
   </div>
   <div class="right">

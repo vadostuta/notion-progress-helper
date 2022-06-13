@@ -1,3 +1,17 @@
-<div *ngIf="items$ | async as items" class="dashboard">
-  <nph-dashboard-item *ngFor="let item of items" [item]="item" class="dashboard-block"></nph-dashboard-item>
+<div class="dashboard" *ngIf="filters$ | async as filters else loading">
+  <div class="filters">
+    <div *ngFor="let filter of filters" class="filters__items" (click)="handleFilter(filter)">{{ filter }}</div>
+    <div class="filters__items" (click)="clearFilters()">clear</div>
+  </div>
+
+  <!-- TODO: add some virtual scroll, solve ctrl+f search -->
+  <div class="content">
+    <ng-container *ngIf="items$ | async as items">
+      <nph-dashboard-item *ngFor="let item of items" [item]="item" class="content-block"></nph-dashboard-item>
+    </ng-container>
+  </div>
 </div>
+
+<ng-template #loading>
+  loading..
+</ng-template>

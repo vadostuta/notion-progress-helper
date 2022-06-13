@@ -1,8 +1,33 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  &-block {
+  .filters {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
     margin-bottom: 2em;
-    display: block;
+    &__items {
+      margin-right: 1em;
+      padding: 1em;
+      border: 1px solid #CDC2AE;
+      transition: background-color .3s ease;
+      letter-spacing: 0.1em;
+      &:hover {
+        cursor: pointer;
+        background-color: #CDC2AE;
+      }
+      &:last-child {
+        margin-right: 0;
+        margin-top: 1em;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    &-block {
+      margin-bottom: 2em;
+      display: block;
+    }
   }
 }

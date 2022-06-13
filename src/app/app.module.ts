@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './layout/header/header.component';
 import { HeaderModule } from './layout/header/header.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeaderModule } from './layout/header/header.module';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    HeaderModule
+    HeaderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
