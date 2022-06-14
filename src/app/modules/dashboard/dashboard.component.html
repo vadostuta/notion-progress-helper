@@ -1,17 +1,46 @@
-<div class="dashboard" *ngIf="filters$ | async as filters else loading">
-  <div class="filters">
-    <div *ngFor="let filter of filters" class="filters__items" (click)="handleFilter(filter)">{{ filter }}</div>
-    <div class="filters__items" (click)="clearFilters()">clear</div>
+<div class="dashboard">
+
+  <!-- TODO: HOW TO? GUIDE -->
+  <div class="search-database">
+    <div>
+      <label for="search">Pls put your internal integration key</label>
+      <div class="controls">
+        <mat-form-field class="search-database__input" appearance="fill">
+          <mat-label>Your integration key</mat-label>
+          <input matInput type="text" [formControl]="integrationKey">
+          <button *ngIf="integrationKey.value" matSuffix mat-icon-button aria-label="Clear" (click)="handeIntegrationKeyClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="handleSaveIntegrationKey()">Save</button>
+      </div>
+      <!-- TODO: info icon, I will save it to localstorage If you don't mind, I don't save it anywhere, you could check all sources. On the next releases I will add some auth and database, and will fix this flow:) -->
+    </div>
+    <div>
+      <label for="search">Pls put URL link to your notion database</label>
+      <div class="controls">
+        <mat-form-field class="search-database__input" appearance="fill">
+          <mat-label>Your database link</mat-label>
+          <input matInput type="text" [formControl]="databaseLink">
+          <button *ngIf="databaseLink.value" matSuffix mat-icon-button aria-label="Clear" (click)="handeSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="handleSearch()" [disabled]="isSearceDisabled">Search</button>
+      </div>
+    </div>
   </div>
 
   <!-- TODO: add some virtual scroll, solve ctrl+f search -->
-  <div class="content">
+  <div class="content" *ngIf="filters$ | async as filters">
+
+    <div class="filters">
+      <div *ngFor="let filter of filters" class="filters__items" (click)="handleFilter(filter)">{{ filter }}</div>
+      <div class="filters__items" (click)="handleClearFilters()">clear</div>
+    </div>
+
     <ng-container *ngIf="items$ | async as items">
       <nph-dashboard-item *ngFor="let item of items" [item]="item" class="content-block"></nph-dashboard-item>
     </ng-container>
   </div>
 </div>
-
-<ng-template #loading>
-  loading..
-</ng-template>

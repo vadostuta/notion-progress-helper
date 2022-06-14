@@ -1,30 +1,54 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  .filters {
+  .search-database {
     display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 2em;
-    &__items {
-      margin-right: 1em;
-      padding: 1em;
-      border: 1px solid #CDC2AE;
-      transition: background-color .3s ease;
-      letter-spacing: 0.1em;
-      &:hover {
-        cursor: pointer;
-        background-color: #CDC2AE;
+    .controls {
+      display: flex;
+      button {
+        height: 51px;
+        margin-left: 2em;
+        width: 7em;
+        letter-spacing: 0.2em;
       }
-      &:last-child {
-        margin-right: 0;
-        margin-top: 1em;
-      }
+    }
+    label {
+      display: block;
+      margin-bottom: 1em;
+    }
+    &__input {
+      width: 300px;
+      display: block;
     }
   }
   .content {
     display: flex;
     flex-direction: column;
+    .filters {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 2em;
+      &__items {
+        margin-right: 1em;
+        padding: 1em;
+        border: 1px solid #CDC2AE;
+        transition: background-color .3s ease;
+        letter-spacing: 0.1em;
+        &:hover {
+          cursor: pointer;
+          background-color: #CDC2AE;
+        }
+        &:last-child {
+          margin-right: 0;
+          margin-top: 1em;
+        }
+      }
+    }
     &-block {
       margin-bottom: 2em;
       display: block;

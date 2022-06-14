@@ -15,7 +15,7 @@ export class StartComponent implements OnInit {
     private readonly authService: AuthService
   ) { }
 
-  handleLogin (): void {
+  handleStart (): void {
     this.authService.setLogState(true)
     this.router.navigate(['dashboard'])
   }
