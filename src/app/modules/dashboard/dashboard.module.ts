@@ -18,12 +18,7 @@ import { DoneItemsPipe } from './done-items.pipe';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule
+    DashboardRoutingModule
   ]
 })
 export class DashboardModule { }
