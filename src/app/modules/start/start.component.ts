@@ -28,7 +28,6 @@ export class StartComponent implements OnInit {
       return;
     }
 
-    // TODO: auth?
     this.authService.setLogState(true)
     this.router.navigate(['dashboard'], { queryParams: { integrationKey: this.integrationKey.value, databaseLink: this.databaseLink.value } })
   }

@@ -10,6 +10,11 @@ export class AuthService {
   constructor () { }
 
   public setLogState (state: boolean): void {
+    if (!state) {
+      localStorage.removeItem('integrationKey')
+      localStorage.removeItem('databaseLink')
+    }
+
     this.logState.next(state)
   }
 
