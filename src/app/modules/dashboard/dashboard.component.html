@@ -39,6 +39,10 @@
       <div class="filters__items" (click)="handleClearFilters()">clear</div>
     </div>
 
+    <div *ngIf="items$ | async as items" class="content-progress">
+      Progress: {{ items | doneItems }} / {{ items.length }}
+    </div>
+
     <ng-container *ngIf="items$ | async as items">
       <nph-dashboard-item *ngFor="let item of items" [item]="item" class="content-block"></nph-dashboard-item>
     </ng-container>
