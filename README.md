@@ -1,27 +1,16 @@
 # Nph
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+Frontend link: https://nphelper.netlify.app/
+Backend link: https://github.com/vadostuta/notion-progress-helper-backend
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+I’m a fan of todo list and i believe they can make our life easier structured.
+I believe notion is the best for it, but I need some more visual representative of my progress, some extra feature to see of my learning path progress more clearly. 
+So I decide to do this app. Will start with simple MVP and than will update from time to time
 
-## Code scaffolding
+## Some screenshots:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img width="1215" alt="Screenshot 2022-07-14 at 17 39 03" src="https://user-images.githubusercontent.com/18558994/179009613-2d3bd171-1700-47da-87d0-754f25c72d03.png">
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<img width="1227" alt="Screenshot 2022-07-14 at 17 43 01" src="https://user-images.githubusercontent.com/18558994/179009697-52ed1c0a-3577-4884-b209-d84880f8cd27.png">
