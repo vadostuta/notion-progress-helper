@@ -1,46 +1,32 @@
-<div class="start">
-  <div class="start-intro">
-    <p class="start-intro__text">
-      I’m a fan of todo list and i believe they can make our life easier structured.
-      <br>
-      I believe notion is the best for it, but I need some more visual representative of my progress, some extra feature to see of my learning path progress more clearly. 
-      <br>
-      So I decide to do this app. Will start with simple MVP and than will update from time to time (<a routerLink="/updates">updates</a>)
-    </p>
-  </div>
-  
-  <!-- TODO: HOW TO? GUIDE -->
-  <div class="search-database">
+<h2>
+  Notion progress helper
+</h2>
+<p>
+  I’m a fan of todo list and i believe they can make our life easier structured.
+  <br>
+  I believe notion is the best for it, but I need some more visual representative of my progress, some extra feature to see of my learning path progress more clearly. 
+  <br>
+  So I decide to do this app. Will start with simple MVP and than will update from time to time <!-- (<a routerLink="/updates">updates</a>) -->
+</p>
+<form>
+  <fieldset>
     <div>
-      <label for="search">Pls put your internal integration key</label>
-      <div class="controls">
-        <mat-form-field class="search-database__input" appearance="fill">
-          <mat-label>Your integration key</mat-label>
-          <input matInput type="text" [formControl]="integrationKey">
-          <button *ngIf="integrationKey.value" matSuffix mat-icon-button aria-label="Clear" (click)="handeIntegrationKeyClear()">
-            <mat-icon>close</mat-icon>
-          </button>
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="handleSaveIntegrationKey()">Save</button>
+      <div class="form-group" style="display: inline-block;">
+        <label for="integrationKey" class="form-label mt-4">Pls put your internal integration key</label>
+        <input id="integrationKey" [formControl]="integrationKey" type="email" class="form-control" placeholder="Your integration key">
       </div>
-      <!-- TODO: info icon, I will save it to localstorage If you don't mind, I don't save it anywhere, you could check all sources. On the next releases I will add some auth and database, and will fix this flow:) -->
+      <button style="margin: 0 0 5px 20px;" (click)="handleSaveIntegrationKey()" type="button" class="btn btn-outline-primary">Save</button>
     </div>
     <div>
-      <label for="search">Pls put URL link to your notion database</label>
-      <div class="controls">
-        <mat-form-field class="search-database__input" appearance="fill">
-          <mat-label>Your database link</mat-label>
-          <input matInput type="text" [formControl]="databaseLink">
-          <button *ngIf="databaseLink.value" matSuffix mat-icon-button aria-label="Clear" (click)="handeSearchClear()">
-            <mat-icon>close</mat-icon>
-          </button>
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="handleSaveDatabase()" [disabled]="isSearceDisabled">Save</button>
+      <div class="form-group" style="display: inline-block;">
+        <label for="databaseLink" class="form-label mt-4">Pls put URL link to your notion database</label>
+        <input id="databaseLink" [formControl]="databaseLink" type="email" class="form-control" placeholder="Your database link">
       </div>
+      <button style="margin: 0 0 5px 20px;" (click)="handleSaveDatabase()" type="button" class="btn btn-outline-primary">Save</button>
     </div>
-  </div>
+  </fieldset>
+</form>
 
-  <div class="start__action">
-    <button mat-raised-button color="primary" (click)="handleSearch()">search</button>
-  </div>
+<div style="margin-top: 1.5em;">
+  <button type="button" (click)="handleSearch()" class="btn btn-outline-primary">Search</button>
 </div>

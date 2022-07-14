@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router'
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service'
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/shared/services/auth.service'
   styleUrls: ['./start.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StartComponent implements OnInit {
+export class StartComponent implements OnInit, OnDestroy {
   // TODO: thing about some bigger validation and formGroup
   public readonly databaseLink = new FormControl('', Validators.required);
   public readonly integrationKey = new FormControl('', Validators.required);
@@ -18,10 +19,19 @@ export class StartComponent implements OnInit {
     return this.databaseLink.invalid || this.integrationKey.invalid
   }
 
+  private subscription: Subscription
+
   constructor (
     private readonly router: Router,
     private readonly authService: AuthService
-  ) { }
+  ) {
+    this.subscription = authService.logState$.subscribe(state => {
+      if (!state) {
+        this.databaseLink.reset()
+        this.integrationKey.reset()
+      }
+    })
+  }
 
   public handleSearch (): void {
     if (this.databaseLink.invalid || this.integrationKey.invalid) {
@@ -59,4 +69,7 @@ export class StartComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable, take } from 'rxjs';
+import { BehaviorSubject, Observable, take, tap } from 'rxjs';
 import { DatabasePayload } from 'src/app/shared/models/databasePayload.model';
 import { Item } from 'src/app/shared/models/item.model';
 import { DataService } from 'src/app/shared/services/api/data.service';
@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit {
 
   public filters$: Observable<string[]>
   public readonly items$: BehaviorSubject<Item[]> = new BehaviorSubject<any>(null)
+
+  public loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
   private get databaseId (): string {
     return this._databaseId
@@ -52,26 +54,31 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit (): void {
     this.activatedRoute.queryParams.pipe(take(1)).subscribe(res => {
+      const integrationKey = res['integrationKey'] || localStorage.getItem('integrationKey')
+      const databaseLink = res['databaseLink'] || localStorage.getItem('databaseLink')
+
       // return to default url if missing required data
-      if (!res['integrationKey'] || !res['databaseLink']) {
+      if (!integrationKey || !databaseLink) {
         this.router.navigate([''])
       }
 
       // set query params
-      this.databaseId = res['databaseLink']
-      this._integrationKey = res['integrationKey']
+      this.databaseId = databaseLink
+      this._integrationKey = integrationKey
 
+      this.loading$.next(true)
       // init filters
-      this.filters$ = this.dataService.getFilters(this.getPayloadData())
-
-      // init default all items
-      this.getAllItems()
+      this.filters$ = this.dataService.getFilters(this.getPayloadData()).pipe(tap(() => {
+        // init default all items
+        this.getAllItems()
+      }))
     })
   }
 
   private getAllItems (): void {
     this.dataService.getAllItems(this.getPayloadData()).pipe(take(1)).subscribe(res => {
       this.items$.next(res)
+      this.loading$.next(false)
     })
   }
 

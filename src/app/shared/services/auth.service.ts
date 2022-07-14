@@ -7,6 +7,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   private readonly logState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
+  public get logState$ (): Observable<boolean> {
+    return this.logState.asObservable()
+  }
+
   constructor () { }
 
   public setLogState (state: boolean): void {

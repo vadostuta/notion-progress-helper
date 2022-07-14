@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './layout/header/header.component';
 import { HeaderModule } from './layout/header/header.module';
 import { HttpClientModule } from '@angular/common/http';
 

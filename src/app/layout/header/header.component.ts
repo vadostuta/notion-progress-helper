@@ -18,14 +18,6 @@ export class HeaderComponent implements OnInit {
     private readonly authService: AuthService
   ) { }
 
-  public handleDashboard (): void {
-    this.router.navigate(['dashboard'])
-  }
-
-  public handleUpdates (): void {
-    this.router.navigate(['updates'])
-  }
-
   public handleLogout (): void {
     this.authService.setLogState(false)
     this.router.navigate([''])

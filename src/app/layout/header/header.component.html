@@ -1,9 +1,26 @@
-<header>
-  <div>
-    <button *ngIf="isLogged$ | async" mat-raised-button color="primary" (click)="handleDashboard()">Dashboard</button>
-    <button mat-raised-button color="primary" (click)="handleUpdates()">Updates</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">NPH</a>
+
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li *ngIf="isLogged$ | async" class="nav-item">
+        <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/updates">Updates</a>
+      </li> -->
+    </ul>
+    <form class="d-flex">
+      <div class="nav-item">
+        <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/vadostuta/notion-progress-helper"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="nav-item">
+        <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/vadoshere"><i class="fa fa-twitter"></i></a>
+      </div>
+      <button *ngIf="isLogged$ | async" class="btn btn-secondary my-2 my-sm-0" (click)="handleLogout()" type="submit">Logout</button>
+    </form>
   </div>
-  <div>
-    <button *ngIf="isLogged$ | async" mat-raised-button color="primary" (click)="handleLogout()">Logout</button>
-  </div>
-</header>
+</nav>

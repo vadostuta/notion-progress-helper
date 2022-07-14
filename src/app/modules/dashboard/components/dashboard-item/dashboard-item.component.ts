@@ -12,6 +12,10 @@ export class DashboardItemComponent implements OnInit {
 
   constructor () { }
 
+  public handleLink (url: string): void {
+    window.open(url, "_blank");
+  }
+
   ngOnInit (): void {
   }
 

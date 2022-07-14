@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { StartRoutingModule } from './start-routing.module';
 import { StartComponent } from './start.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -18,9 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     StartRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule
   ]
 })
 export class StartModule { }
