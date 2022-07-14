@@ -1,0 +1,12 @@
+.guide {
+  padding: 0 6em 3em 0;
+  display: block;
+  &__image {
+    max-width: 700px;
+    display: block;
+    margin: 3em 0;
+  }
+  &__group {
+    margin-bottom: 2em;
+  }
+}

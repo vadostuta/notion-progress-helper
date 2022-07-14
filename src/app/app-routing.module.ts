@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: ()=> import('./modules/updates/updates.module').then(m=> m.UpdatesModule)
   },
   {
+    path: 'guide',
+    loadChildren: ()=> import('./modules/guide/guide.module').then(m=> m.GuideModule)
+  },
+  {
     path: '**',
     redirectTo: 'dashboard',
     pathMatch: 'full'
