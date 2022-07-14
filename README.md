@@ -3,7 +3,7 @@
 Frontend link: https://nphelper.netlify.app/
 Backend link: https://github.com/vadostuta/notion-progress-helper-backend
 
-## Development server
+## Description
 
 I’m a fan of todo list and i believe they can make our life easier structured.
 I believe notion is the best for it, but I need some more visual representative of my progress, some extra feature to see of my learning path progress more clearly. 
